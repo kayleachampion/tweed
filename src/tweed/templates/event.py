@@ -4,7 +4,9 @@ def render(name: str) -> str:
     return dedent(f"""\ 
 
     ---
-    type: meeting
+    type: event
+    start_time:
+    end_time:
     title: {name}
     date: 
 

@@ -133,3 +133,16 @@ class Vault:
         return results
 
 
+    def get_or_create(self, kind: str, name: str) -> Note:
+        """Return an existing item of this kind, or create it."""
+
+        for note in self.find():
+            if (
+                note.get("type") == kind
+                and note.get("title", note.path.stem).lower() == name.lower()
+            ):
+                return note
+
+        from tweed.services.create import create_item
+
+        return create_item(self, kind, name)

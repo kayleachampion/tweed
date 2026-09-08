@@ -1,10 +1,11 @@
 from tweed.vault import Vault
+from tweed.services.create import create_item
 
 
 def test_new_note(tmp_path):
     vault = Vault(tmp_path)
 
-    note = vault.entity("project", "Groovy_New_Project")
+    note = vault.item("project", "Groovy_New_Project")
 
     note["type"] = "project"
     note["status"] = "planning"
@@ -26,13 +27,13 @@ def test_new_note(tmp_path):
 def test_note_round_trip(tmp_path):
     vault = Vault(tmp_path)
 
-    note = vault.entity("project", "Groovy_New_Project")
+    note = vault.item("project", "Groovy_New_Project")
     note["type"] = "project"
     note["status"] = "planning"
     note.content = "# Groovy New Project"
     note.save()
 
-    loaded = vault.load("project", "Groovy_New_Project")
+    loaded = vault.item("project", "Groovy_New_Project").load()
 
     assert loaded["type"] == "project"
     assert loaded["status"] == "planning"

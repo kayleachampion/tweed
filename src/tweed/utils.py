@@ -26,3 +26,56 @@ def slugify(name: str) -> str:
 
     # avoid trailing punctuation
     return name.strip("._-")
+
+
+DAY_NAMES = {
+    "m": "Monday",
+    "mo": "Monday",
+    "mon": "Monday",
+    "monday": "Monday",
+
+    "tu": "Tuesday",
+    "tue": "Tuesday",
+    "tuesday": "Tuesday",
+
+    "w": "Wednesday",
+    "we": "Wednesday",
+    "wed": "Wednesday",
+    "wednesday": "Wednesday",
+
+    "th": "Thursday",
+    "thu": "Thursday",
+    "thursday": "Thursday",
+
+    "f": "Friday",
+    "fr": "Friday",
+    "fri": "Friday",
+    "friday": "Friday",
+
+    "sa": "Saturday",
+    "sat": "Saturday",
+    "saturday": "Saturday",
+
+    "su": "Sunday",
+    "sun": "Sunday",
+    "sunday": "Sunday",
+}
+
+DAY_ORDER = {
+    "Monday": 0,
+    "Tuesday": 1,
+    "Wednesday": 2,
+    "Thursday": 3,
+    "Friday": 4,
+    "Saturday": 5,
+    "Sunday": 6,
+}
+
+
+def normalize_day(day: str) -> str:
+    key = day.strip().lower()
+
+    try:
+        return DAY_NAMES[key]
+    except KeyError:
+        raise ValueError(f"Unknown day '{day}'.")

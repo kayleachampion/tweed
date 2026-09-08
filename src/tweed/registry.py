@@ -31,6 +31,10 @@ REGISTRY = {
          "modules": [],
          "type": "entity",
     },
+    "module": {
+        "directory": "Modules",
+        "template": "module",
+    },
     "grant": {
         "directory": "Grants",
         "template": "grant",
@@ -70,4 +74,20 @@ REGISTRY = {
         "template": "talk",
         "type": "event",
     },    
+    "event": {
+        "directory": "Events",
+        "template": "event",
+        "effort_areas": [],
+        "roles": [],
+        "modules": [],
+    },
+    "task": {
+        "directory": "Tasks",
+        "template": "task",
+        "effort_areas": [],
+        "roles": [],
+        "status": "waiting_for_resources",
+        "priority": "normal",
+        "modules": [],
+},
 }

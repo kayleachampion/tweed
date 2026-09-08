@@ -1,6 +1,6 @@
 from tweed.registry import REGISTRY
 
-from . import student, project, committee, course, grant, paper, meeting
+from . import student, project, committee, course, grant, paper, event, module, offering, task
 
 TEMPLATES = {
     "student": student.render,
@@ -9,7 +9,10 @@ TEMPLATES = {
     "course": course.render,
     "grant": grant.render,
     "paper": paper.render,
-    "meeting": meeting.render,
+    "module": module.render,
+    "event": event.render,
+    "task": task.render,
+    "offering": offering.render,
 }
 
 
