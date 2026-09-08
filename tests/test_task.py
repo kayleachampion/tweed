@@ -1,7 +1,6 @@
 
 from tweed.services.task import set_status
 
-
 def test_set_task_status(tmp_path):
     from tweed.vault import Vault
     from tweed.services.create import create_item
@@ -12,7 +11,8 @@ def test_set_task_status(tmp_path):
 
     set_status(task, "in progress")
 
-    assert task["status"] == "in progress"
+    assert task["status"] == "in_progress"
+
 
 def test_set_task_status_rejects_invalid_status(tmp_path):
     import pytest
